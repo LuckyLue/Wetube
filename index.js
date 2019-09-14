@@ -1,23 +1,17 @@
 //Load Module "express"
-const express = require("express");
+import express from "express"
+// const express = require("express");
 //Create app Object
 const app = express();
 
 const PORT = 4000;
 
 //Call back funtion for routing test
-function handleProfile(req, res) {
-  res.send("You are on Profile");
-}
+const handleProfile = (req, res) => res.send("You are on Profile");
 
-function handleHome(req, res) {
-  console.log(req);
-  res.send("Hello From Home");
-}
+const handleHome = (req, res) => res.send("Hello From Home");
 
-function handleListening() {
-  console.log(`Listening on http://localhost:${PORT}`);
-}
+const handleListening = () => console.log(`Listening on http://localhost:${PORT}`);
 
 app.get("/", handleHome);
 
