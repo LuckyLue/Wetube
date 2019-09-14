@@ -9,11 +9,19 @@ const PORT = 4000;
 //Call back funtion for routing test
 const handleProfile = (req, res) => res.send("You are on Profile");
 
-const handleHome = (req, res) => res.send("Hello From Home");
+const handleHome = (req, res) => res.send("Hello From my ass");
+
+const betweenHome = (req, res, next) => {
+    console.log("Between");
+    next();
+}
 
 const handleListening = () => console.log(`Listening on http://localhost:${PORT}`);
 
-app.get("/", handleHome);
+//Register middleware
+app.use(betweenHome);
+
+app.get("/", betweenHome, handleHome);
 
 //routing test
 app.get("/profile", handleProfile);
